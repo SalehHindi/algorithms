@@ -18,10 +18,20 @@ Send Money = Take unspent transactions until they total near the money you want 
 over is sent to you
 
 When you
-
-
-
-
-
-
 '''
+
+import hashlib
+import random
+
+for i in range(100000000):
+    m=hashlib.sha256()
+    m.update(str(random.random()))
+    hash=m.hexdigest()
+    numbers=6
+    #let numbers=4 for speedy results
+
+    for a in range(numbers):
+        if hash[a]=='0':
+            numbers-=1
+    if not numbers:
+        print i, "||", m.hexdigest()
