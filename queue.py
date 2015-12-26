@@ -19,13 +19,22 @@ class Queue(object):
     def size(self):
         return len(self.queue)
 
+    def first(self):
+        if not self.is_empty():
+            return self.queue[-1]
+
 line=Queue()
-for i in range(10):
-    line.enqueue(i)
+constant=7
+alphabet='abcdefghijklmnop'
+for a in alphabet:
+    line.enqueue(a)
 
-print line
-
-for i in range(3):
+while line.size() != 1:
+    print line
+    for turn in range(constant):
+        potato=line.first()
+        line.dequeue()
+        line.enqueue(potato)
     line.dequeue()
 
 print line
